@@ -13,7 +13,7 @@
 
 /******************************************************************************/
 void free_space(void){
-    const char *tag="test"; // used to label output files
+    const char *tag="task3"; // used to label output files
 
     /** Optical pulse ***/
     double tau = 5.0; // fs, width of the pulse

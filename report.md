@@ -117,5 +117,34 @@ $$
 \caption{Отражение от границы импульса H}
 \end{figure}
 
+## Задание 3
 
+Запустить два импульса (ширина $\tau=5$ фс, расстояние в начальный момент 50
+микрон), распространяющиеся навстречу друг другу. Что происходит при их прохождении
+через друг друга?
 
+**Ответ**
+
+Рассмотрим уравнения Максвелла для нашего одномерного случая:
+$$
+\left\{
+\begin{aligned}
+&& \frac{\delta E_y}{\delta x} = - \frac{1}{c} \frac{\delta B_z}{\delta t} \\
+&& \frac{\delta H_z}{\delta x} = - \frac{1}{c} \frac{\delta D_y}{\delta t}
+\end{aligned}
+\right.
+$$
+\vspace{30em}
+
+Подтвердим результатами моделирования:
+
+\begin{figure}[H]
+\centering
+{\includegraphics{img/task3_E.pdf}}
+\caption{Столкновение импульсов E}
+\end{figure}
+\begin{figure}[H]
+\centering
+{\includegraphics{img/task3_H.pdf}}
+\caption{Столкновение импульсов H}
+\end{figure}
