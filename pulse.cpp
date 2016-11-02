@@ -19,8 +19,9 @@ void create_initial_dist(int Nx, double *Ey, double *Hz, double dx, double dt,
         Ey[i] = pulse(dx*(i+0.0-ix0), 0*dt, speed, tau, w0);
         Hz[i] = pulse(dx*(i+0.5-ix0), -0.5*dt, speed, tau, w0);
     }
-    /* Ey[0]=0; // to satisfy b.c. */
-    Hz[0] = 0;
-    Hz[Nx-1] = 0;
+    Hz[0]=0; // to satisfy b.c.
+    Hz[Nx-1]=0; // to satisfy b.c.
+    /* Hz[0] = 0; */
+    /* Hz[Nx-1] = 0; */
 }
 /*** END OF FILE **************************************************************/
