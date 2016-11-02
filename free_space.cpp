@@ -16,14 +16,15 @@ void free_space(void){
     const char *tag="test"; // used to label output files
 
     /** Optical pulse ***/
-    double tau = 1.0; // fs, width of the pulse
+    double tau = 5.0; // fs, width of the pulse
     double w0=0; // no oscillating component
 
     /*** Computational parameters ***/
     int Nx = 4000; // number of cells along x
     double dx = 20.0; // nm
     double xi = 0.9;
-    int ix0 = 1000; // cell number of the center of the pulse at t=0
+    int ix0_1 = 1000; // cell number of the center of the pulse at t=0
+    int ix0_2 = 3000; // cell number of the center of the pulse at t=0
     int No = 1000; // defines the output rate
     int Nd = 10; // defines the draw rate
 
@@ -32,12 +33,13 @@ void free_space(void){
     printf("dx=%.12e nm, dt=%.12e fs\n", dx, dt);
 
     /*** arrays for the fields ***/
-    double *fields = static_cast<double*>(malloc(2*Nx*sizeof(double)));
+    double *fields = static_cast<double*>(calloc(2*Nx, sizeof(double)));
     double *Hz = fields+0*Nx;
     double *Ey = fields+1*Nx;
 
     int T=0; // total steps
-    create_initial_dist(Nx, Ey, Hz, dx, dt, cspeed, ix0, tau, w0);
+    create_initial_dist(Nx, Ey, Hz, dx, dt, cspeed, ix0_1, tau, w0, 1);
+    create_initial_dist(Nx, Ey, Hz, dx, dt, cspeed, ix0_2, tau, w0, -1);
     output_Ey_vs_x(Nx, Ey, 0, dx, tag);
     output_Hz_vs_x(Nx, Hz, 0, dx, tag);
 
